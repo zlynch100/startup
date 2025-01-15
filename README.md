@@ -46,147 +46,25 @@ sequenceDiagram
 - Responsive Design: The layout adjusts to different screen sizes, providing a consistent experience on both mobile and desktop.
 - Game Reset: A button that allows players to restart the game without reloading the page.
 - Win/Loss Detection: The game will automatically detect whether the player has won (all safe tiles revealed) or lost (a mine has been triggered).
-- Multiplayer (optional): Real-time multiplayer functionality, allowing players to play together and see each other’s progress.
-- Leaderboard (optional): Tracks high scores or fastest times and displays them in a leaderboard.
+- Multiplayer: Real-time multiplayer functionality, allowing players to play together and see each other’s progress.
+- Leaderboard: Tracks high scores or fastest times and displays them in a leaderboard.
 
 ### Technologies
 
 I am going to use the required technologies in the following ways:
 
 - **HTML** - HTML will be used to structure the game page. There will be a main game board (using <div> elements for tiles) along with UI elements like the timer, mine counter, and restart button. The HTML will also ensure accessibility and a clean, readable structure.
-- **CSS** - CSS will be used to style the application, ensuring it is visually appealing and responsive across different devices. I will use CSS Grid to create the game grid and ensure that the layout works well on both desktop and mobile.
+- **CSS** - CSS will be used to style the application, ensuring it is visually appealing and responsive across different devices. I will create the game grid and ensure that the layout works well on both desktop and mobile.
 - **React** - React will be used to manage the game’s state and UI components. The game logic will be modularized into React components (e.g., GameBoard, Tile, Timer, and MineCounter). React will help maintain the state of the game (e.g., tiles being revealed, timer counting down) and allow for quick re-renders when necessary.
 - **Service** - I will use an external API to bring additional dynamic features to the game, like fetching a random background for the game grid or providing game-related trivia. For example, a random image API to give the game a unique background for every session.
-- **DB/Login** - If I want to allow players to log in and track their high scores or times, I will implement a user authentication system. This could involve creating an account with a username and password, and securely storing credentials with JWT tokens. Also, I will use MongoDB (or another database) to store user data, high scores, and game settings if users are logged in. This allows players to have persistent game data, such as their high scores or selected difficulty.
+- **DB/Login** - To allow players to log in and track their high scores or times, I will implement a user authentication system. This could involve creating an account with a username and password, and securely storing credentials with JWT tokens. Also, I will use MongoDB (or another database) to store user data, high scores, and game settings if users are logged in. This allows players to have persistent game data, such as their high scores or selected difficulty.
 - **WebSocket** - If multiplayer is implemented, I will use WebSockets to facilitate real-time communication between players. This allows one player's actions to be seen by others immediately, creating a live multiplayer experience.
 
-## Deployment instructions
-
-1. Clone the Minesweeper repository to your local machine.
-1. Create a `dbConfig.json` file that contains the credentials to access your Mongo Database. This must be placed in the root of the project.
-
-   ```json
-   {
-     "hostname": "YourMongoDbAccount.xiu1cqz.mongodb.net",
-     "userName": "YourMongoDbUsername",
-     "password": "YourMongoDbPassword"
-   }
-   ```
-
-1. NPM install both the frontend and backend dependencies.
-
-   ```sh
-   npm install
-   cd ui
-   npm install
-   cd ..
-   ```
-
-1. Use the `deploy.sh` shell script to deploy Voter to an EC2 instance. You will need the PEM key in order to run the script.
-
-   ```sh
-   ./deploy.sh -k ~/keys/yourkeyhere.pem -h yourdomainnamehere.click
-   ```
-
-1. Verify that the application is running on the domain.
-
-   ```sh
-   curl startup.cs260.click
-   ```
-
-1. **Optional**: If you want to modify the candidates that are currently voted on then alter `finalists.json`. The format of the file is as follows:
-
-   ```json
-   { "candidate": [{ "name": "Meg", "url": "https://game.com", "votes": 0, "id": "game" }] }
-
-   You can update the candidates with the following endpoint call:
-
-   ```sh
-   curl -X PUT localhost:4000/api/candidate -H "Content-Type:application/json" --data '@finalists.json'
-   ```
-
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
-
-
-## 🚀 AWS deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
-
-## 🚀 HTML deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
-
-## 🚀 CSS deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
-
-## 🚀 React part 1: Routing deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - Routing between login and voting components.
-
-## 🚀 React part 2: Reactivity
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
-
-## 🚀 Service deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-
-## 🚀 DB/Login deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] **User registration** - I did not complete this part of the deliverable.
-- [ ] **User login and logout** - I did not complete this part of the deliverable.
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Restricts functionality based on authentication** - I did not complete this part of the deliverable.
-
-## 🚀 WebSocket deliverable
-
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
-
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
