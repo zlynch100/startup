@@ -1,14 +1,12 @@
 # Minesweeper
 
-[My Notes](notes.md)
-
-This app will mimic the popular game we all know and love: Minesweeper.
+This app will allow users to play the popular game we all know and love: Minesweeper.
 
 ## 🚀 Specification Deliverable
 
 ### Elevator pitch
 
-One of the greatest online games to ever be created is Minesweeper. It is simple, yet challenging, as players compete against each other to flip over tiles that (hopefully) do not contain a mine. Using numbers to guide them along and logical thinking, see if you can best your friends in this addicting game. Just remember: don't touch the mines...
+One of the greatest online games to ever be created is Minesweeper. It is simple, yet challenging, as players compete against each other to flip over tiles that (hopefully) do not contain a mine. Using numbers to guide them along and testing one's logical thinking, see if you can best your friends in this addicting game. Just remember: don't touch the mines...
 
 ### Design
 
