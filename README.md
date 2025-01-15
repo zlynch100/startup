@@ -10,7 +10,7 @@ One of the greatest online games to ever be created is Minesweeper. It is simple
 
 ### Design
 
-![Mock](voterMockUI.jpg)
+![Mock](IMG_2303.jpg)
 
 - Game Board: The grid where the game will be played (tiles will be revealed or flagged).
 - Timer: The timer starts once the game begins, tracking how long the player takes.
