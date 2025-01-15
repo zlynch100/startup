@@ -22,20 +22,22 @@ One of the greatest online games to ever be created is Minesweeper. It is simple
 
 ### Design
 
+![Mock](voterMockUI.jpg)
+
 
 Here is a sequence diagram that shows how users would interact with the backend to play the game.
 
 ```mermaid
 sequenceDiagram
-    actor Alice
-    actor Juan
-    actor Bud
-    Alice->>Server: Bud + 1
-    Server -->>Juan: Bud + 1
-    Server -->>Bud: Bud + 1
-    Juan->>Server: Alice + 1
-    Server -->>Bud: Alice + 1
-    Server -->>Alice: Alice + 1
+    participant Player
+    participant Game
+    Player->>Game: Selects difficulty (easy, medium, or hard)
+    Game->>Player: Render grid based on difficulty
+    Player->>Game: Click on tile
+    Game->>Player: Reveal tile or show mine
+    Game->>Player: Check for win/loss condition
+    Player->>Game: Restart game
+    Game->>Player: Reset grid and timer
 ```
 
 ### Key features
