@@ -2,7 +2,7 @@
 
 [My Notes](notes.md)
 
-This app will mimic the popular game we all know and love: Minesweeper. 
+This app will mimic the popular game we all know and love: Minesweeper.
 
 
 > [!NOTE]
@@ -15,6 +15,100 @@ This app will mimic the popular game we all know and love: Minesweeper.
 
 > [!NOTE]
 >  Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
+
+### Elevator pitch
+
+One of the greatest online games to ever be created is Minesweeper. It is simple, yet challenging, as players compete against each other to flip over tiles that (hopefully) do not contain a mine. Using numbers to guide them along and logical thinking, see if you can best your friends in this addicting game. Just remember: don't touch the mines...
+
+### Design
+
+
+Here is a sequence diagram that shows how users would interact with the backend to play the game.
+
+```mermaid
+sequenceDiagram
+    actor Alice
+    actor Juan
+    actor Bud
+    Alice->>Server: Bud + 1
+    Server -->>Juan: Bud + 1
+    Server -->>Bud: Bud + 1
+    Juan->>Server: Alice + 1
+    Server -->>Bud: Alice + 1
+    Server -->>Alice: Alice + 1
+```
+
+### Key features
+
+- Secure login over HTTPS
+- Ability to select the question to decide
+- Display of choices
+- Ability to select, and change, top three choices
+- Totals from all users displayed in realtime
+- Ability for a user to lock in their top three
+- Results are persistently stored
+- Ability for admin to create and delete questions
+
+### Technologies
+
+I am going to use the required technologies in the following ways:
+
+- **HTML** - Uses correct HTML structure for application. Two HTML pages. One for login and one for voting. Hyperlinks to choice artifact.
+- **CSS** - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
+- **React** - Provides login, choice display, applying votes, display other users votes, and use of React for routing and components.
+- **Service** - Backend service with endpoints for:
+  - login
+  - retrieving choices
+  - submitting votes
+  - retrieving vote status
+- **DB/Login** - Store users, choices, and votes in database. Register and login users. Credentials securely stored in database. Can't vote unless authenticated.
+- **WebSocket** - As each user votes, their votes are broadcast to all other users.
+
+## Deployment instructions
+
+1. Clone this repository to your development environment.
+1. Create a `dbConfig.json` file that contains the credentials to access your Mongo Database. This must be placed in the root of the project.
+
+   ```json
+   {
+     "hostname": "YourMongoDbAccount.xiu1cqz.mongodb.net",
+     "userName": "YourMongoDbUsername",
+     "password": "YourMongoDbPassword"
+   }
+   ```
+
+1. NPM install both the frontend and backend dependencies.
+
+   ```sh
+   npm install
+   cd ui
+   npm install
+   cd ..
+   ```
+
+1. Use the `deploy.sh` shell script to deploy Voter to an EC2 instance. You will need the PEM key in order to run the script.
+
+   ```sh
+   ./deploy.sh -k ~/keys/yourkeyhere.pem -h yourdomainnamehere.click
+   ```
+
+1. Verify that the application is running on the domain.
+
+   ```sh
+   curl startup.cs260.click
+   ```
+
+1. **Optional**: If you want to modify the candidates that are currently voted on then alter `finalists.json`. The format of the file is as follows:
+
+   ```json
+   { "candidate": [{ "name": "Meg", "url": "https://game.com", "votes": 0, "id": "game" }] }
+
+   You can update the candidates with the following endpoint call:
+
+   ```sh
+   curl -X PUT localhost:4000/api/candidate -H "Content-Type:application/json" --data '@finalists.json'
+   ```
+
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
