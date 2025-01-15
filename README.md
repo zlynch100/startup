@@ -24,6 +24,12 @@ One of the greatest online games to ever be created is Minesweeper. It is simple
 
 ![Mock](voterMockUI.jpg)
 
+- Game Board: The grid where the game will be played (tiles will be revealed or flagged).
+- Timer: The timer starts once the game begins, tracking how long the player takes.
+- Mine Counter: A counter showing how many mines are left for the player to flag.
+- Restart Button: After the game ends (either win or loss), a button will be available to restart the game.
+- Grid Layout: The grid adjusts based on the difficulty level (e.g., 8x8 for easy, 16x16 for medium, 24x24 for hard).
+
 
 Here is a sequence diagram that shows how users would interact with the backend to play the game.
 
@@ -43,32 +49,30 @@ sequenceDiagram
 ### Key features
 
 - Secure login over HTTPS
-- Ability to select the question to decide
-- Display of choices
-- Ability to select, and change, top three choices
-- Totals from all users displayed in realtime
-- Ability for a user to lock in their top three
-- Results are persistently stored
-- Ability for admin to create and delete questions
+- Dynamic Grid: The game features three difficulty levels with different grid sizes (e.g., 8x8, 16x16, 24x24).
+- Game Logic: The app must implement all the basic Minesweeper logic, including mine placement, tile revealing, flagging, and win/loss detection.
+- Timer: Tracks how long the player takes to finish the game, and stops when the player wins or loses.
+- Mine Counter: Displays the number of mines remaining to be flagged. The counter decreases as flags are placed.
+- Responsive Design: The layout adjusts to different screen sizes, providing a consistent experience on both mobile and desktop.
+- Game Reset: A button that allows players to restart the game without reloading the page.
+- Win/Loss Detection: The game will automatically detect whether the player has won (all safe tiles revealed) or lost (a mine has been triggered).
+- Multiplayer (optional): Real-time multiplayer functionality, allowing players to play together and see each other’s progress.
+- Leaderboard (optional): Tracks high scores or fastest times and displays them in a leaderboard.
 
 ### Technologies
 
 I am going to use the required technologies in the following ways:
 
-- **HTML** - Uses correct HTML structure for application. Two HTML pages. One for login and one for voting. Hyperlinks to choice artifact.
-- **CSS** - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
-- **React** - Provides login, choice display, applying votes, display other users votes, and use of React for routing and components.
-- **Service** - Backend service with endpoints for:
-  - login
-  - retrieving choices
-  - submitting votes
-  - retrieving vote status
-- **DB/Login** - Store users, choices, and votes in database. Register and login users. Credentials securely stored in database. Can't vote unless authenticated.
-- **WebSocket** - As each user votes, their votes are broadcast to all other users.
+- **HTML** - HTML will be used to structure the game page. There will be a main game board (using <div> elements for tiles) along with UI elements like the timer, mine counter, and restart button. The HTML will also ensure accessibility and a clean, readable structure.
+- **CSS** - CSS will be used to style the application, ensuring it is visually appealing and responsive across different devices. I will use CSS Grid to create the game grid and ensure that the layout works well on both desktop and mobile.
+- **React** - React will be used to manage the game’s state and UI components. The game logic will be modularized into React components (e.g., GameBoard, Tile, Timer, and MineCounter). React will help maintain the state of the game (e.g., tiles being revealed, timer counting down) and allow for quick re-renders when necessary.
+- **Service** - I will use an external API to bring additional dynamic features to the game, like fetching a random background for the game grid or providing game-related trivia. For example, a random image API to give the game a unique background for every session.
+- **DB/Login** - If I want to allow players to log in and track their high scores or times, I will implement a user authentication system. This could involve creating an account with a username and password, and securely storing credentials with JWT tokens. Also, I will use MongoDB (or another database) to store user data, high scores, and game settings if users are logged in. This allows players to have persistent game data, such as their high scores or selected difficulty.
+- **WebSocket** - If multiplayer is implemented, I will use WebSockets to facilitate real-time communication between players. This allows one player's actions to be seen by others immediately, creating a live multiplayer experience.
 
 ## Deployment instructions
 
-1. Clone this repository to your development environment.
+1. Clone the Minesweeper repository to your local machine.
 1. Create a `dbConfig.json` file that contains the credentials to access your Mongo Database. This must be placed in the root of the project.
 
    ```json
@@ -120,39 +124,6 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
-### Elevator pitch
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-### Design
-
-![Design image](placeholder.png)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-```mermaid
-sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
-```
-
-### Key features
-
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
-
-### Technologies
-
-I am going to use the required technologies in the following ways.
-
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
 
 ## 🚀 AWS deliverable
 
