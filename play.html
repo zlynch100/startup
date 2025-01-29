@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minesweeper</title>
+        <style>
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(8, 30px);
+                grid-template-rows: repeat(8, 30px);
+                gap: 2px;
+            }
+            .cell {
+                width: 30px;
+                height: 30px;
+                background-color: lightgray;
+                border: 1px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 18px;
+                cursor: pointer;
+            }
+            .cell:hover {
+                background-color: darkgray;
+            }
+        </style>
+        <link rel="icon" href="favicon.ico">
+    </head>
+    <body>
+        <header>
+            <h1>Minesweeper</h1>
+            <nav>
+                <menu>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="play.html">Play</a>
+                    </li>
+                    <li>
+                        <a href="times.html">Scores</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                </menu>
+            </nav>
+            <hr>
+        </header>
+        <main>
+            <div>
+                Player:
+                <span>Mystery Player</span>
+            </div>
+            <ul>
+                <li>Bob started a new game</li>
+                <li>Jerry started a new game</li>
+                <li>Bob finished in 5:43</li>
+            </ul>
+            <br>
+            <div>
+                <label for="count">Time</label>
+                <input type="text" id="count" value="--" readonly="">
+            </div>
+            <br>
+            <div>
+                <button>Reset</button>
+            </div>
+            <br>
+            <div class="grid">
+                <script>
+                    const grid = document.querySelector('.grid');
+                    for (let i = 0; i < 64; i++) { // 8x8 grid (64 cells)
+                        const cell = document.createElement('div');
+                        cell.classList.add('cell');
+                        grid.appendChild(cell);
+                    }
+                </script>
+            </div>        
+        </main>
+        <footer>
+            <hr>
+            <span class="text-reset">Author Name(s)</span>
+            <br>
+            <a href="https://github.com/zlynch100/startup">GitHub</a>
+        </footer>
+    </body>
+</html>
