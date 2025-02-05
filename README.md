@@ -66,3 +66,57 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] Description of key features
 - [x] Description of how you will use each technology
 - [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minesweeper HTML</title>
+        <link rel="icon" href="favicon.ico">
+    </head>
+    <body>
+        <header>
+            <h1>Minesweeper</h1>
+            <nav>
+                <menu>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="play.html">Play</a>
+                    </li>
+                    <li>
+                        <a href="times.html">Scores</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                </menu>
+            </nav>
+            <hr>
+        </header>
+        <main>
+            <h1>Welcome to Minesweeper</h1>
+            <form method="get" action="play.html">
+                <div>
+                    <span>@</span>
+                    <input type="text" placeholder="your@email.com">
+                </div>
+                <div>
+                    <span>🔒</span>
+                    <input type="password" placeholder="password">
+                </div>
+                <button type="submit">Login</button>
+                <button type="submit">Create</button>
+            </form>
+        </main>
+        <footer>
+            <hr>
+            <span class="text-reset">Author Name(s)</span>
+            <br>
+            <a href="https://github.com/zlynch100/startup">GitHub</a>
+        </footer>
+    </body>
+</html>
